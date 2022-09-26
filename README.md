@@ -1,30 +1,40 @@
-# MyBatis DB연결 세팅
-
-### 설정방법
-- MyBatisConfig 파일 필요
-- resources/mapper/*.xml 파일 필요
-- Users 엔티티 필요
-- UsersDao 인터페이스 생성 필요
+# Baseball 프로그램
 
 ### 테이블 생성
 ```sql
-create table users(
-    id number primary key,
-    username varchar2(20),
-    password varchar2(20),
-    email varchar2(50),
+create table stadium(
+    id int primary KEY auto_increment,
+    name varchar(20),
     createdAt TIMESTAMP
 );
 
-CREATE SEQUENCE users_seq 
-INCREMENT BY 1 
-START WITH 1;
+create table team(
+    id int primary KEY auto_increment,
+    name varchar(20),
+    stadium_id INT,
+    createdAt TIMESTAMP
+);
+
+create table player(
+    id int primary KEY auto_increment,
+    name varchar(20),
+    position VARCHAR(20),
+    team_id INT,
+    isouter BOOLEAN,
+    createdAt TIMESTAMP
+);
 ```
 
 ### 더미데이터 추가
 ```sql
-insert into users(id, username, password, email, createdAt) values(users_seq.nextval, 'ssar', '1234', 'ssar@nate.com', sysdate);
-insert into users(id, username, password, email, createdAt) values(users_seq.nextval, 'cos', '1234', 'cos@nate.com', sysdate);
-insert into users(id, username, password, email, createdAt) values(users_seq.nextval, 'hong', '1234', 'hong@nate.com', sysdate);
-commit;
+INSERT INTO stadium(NAME, createdAt) VALUES('사직야구장', NOW());
+INSERT INTO stadium(NAME, createdAt) VALUES('잠실야구장', NOW());
+INSERT INTO stadium(NAME, createdAt) VALUES('고척야구장', NOW());
+INSERT INTO team(NAME, stadium_id, createdAt) VALUES('롯데', 1, NOW());
+INSERT INTO team(NAME, stadium_id, createdAt) VALUES('두산', 2, NOW());
+INSERT INTO team(NAME, stadium_id, createdAt) VALUES('키움', 3, NOW());
+INSERT INTO player(NAME, position, team_id, isouter, createdAt) VALUES('이대호', '1루수', 1, 0,NOW());
+INSERT INTO player(NAME, position, team_id, isouter, createdAt) VALUES('홍길동', '외야수',2, 0,NOW());
+INSERT INTO player(NAME, position, team_id, isouter, createdAt) VALUES('장보고', '투수', 3, 0,NOW());
+COMMIT;
 ```
