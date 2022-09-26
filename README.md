@@ -20,7 +20,7 @@ create table player(
     name varchar(20),
     position VARCHAR(20),
     team_id INT,
-    isouter BOOLEAN,
+    is_outer BOOLEAN,
     createdAt TIMESTAMP
 );
 ```
@@ -33,8 +33,8 @@ INSERT INTO stadium(NAME, createdAt) VALUES('고척야구장', NOW());
 INSERT INTO team(NAME, stadium_id, createdAt) VALUES('롯데', 1, NOW());
 INSERT INTO team(NAME, stadium_id, createdAt) VALUES('두산', 2, NOW());
 INSERT INTO team(NAME, stadium_id, createdAt) VALUES('키움', 3, NOW());
-INSERT INTO player(NAME, position, team_id, isouter, createdAt) VALUES('이대호', '1루수', 1, 0,NOW());
-INSERT INTO player(NAME, position, team_id, isouter, createdAt) VALUES('홍길동', '외야수',2, 0,NOW());
-INSERT INTO player(NAME, position, team_id, isouter, createdAt) VALUES('장보고', '투수', 3, 0,NOW());
+INSERT INTO player(NAME, position, team_id, is_outer, createdAt) VALUES('이대호', '1루수', 1, 0,NOW());
+INSERT INTO player(NAME, position, team_id, is_outer, createdAt) VALUES('홍길동', '외야수',2, 0,NOW());
+INSERT INTO player(NAME, position, team_id, is_outer, createdAt) VALUES('장보고', '투수', 3, 0,NOW());
 COMMIT;
 ```
