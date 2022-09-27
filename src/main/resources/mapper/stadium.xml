@@ -5,13 +5,13 @@
 <mapper namespace="site.metacoding.red.domain.stadium.StadiumDao">
 
 	<insert id="insert">
-		INSERT INTO stadium(NAME, createdAt) VALUES(#{name}, NOW());
+		INSERT INTO stadium(NAME, created_at) VALUES(#{name}, NOW());
 	</insert>
 
 	<select id="findAll"
 		resultType="site.metacoding.red.domain.stadium.Stadium">
 		SELECT id, row_number() over(order BY id asc) as NO, NAME,
-		createdAt
+		created_at
 		FROM stadium
 	</select>
 
