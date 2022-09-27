@@ -20,13 +20,13 @@
 
 	</select>
 
-	<insert id="update">
+	<update id="update">
 
-	</insert>
+	</update>
 
-	<insert id="deleteById">
-
-	</insert>
+	<delete id="deleteById">
+		DELETE FROM stadium WHERE id = #{id}
+	</delete>
 
 
 </mapper>
