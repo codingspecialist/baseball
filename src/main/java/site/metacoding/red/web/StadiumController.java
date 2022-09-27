@@ -21,7 +21,7 @@ public class StadiumController {
 	
 	private final StadiumService stadiumService;
 
-	@GetMapping("/stadium")
+	@GetMapping({"/", "/stadium"})
 	public String list(Model model) {
 		List<Stadium> stadiumList = stadiumService.목록보기();
 		model.addAttribute("stadiumList", stadiumList);
