@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.metacoding.red.domain.stadium.StadiumDao">
+
+	<insert id="insert">
+
+	</insert>
+
+	<select id="findAll"
+		resultType="site.metacoding.red.domain.stadium.Stadium">
+		SELECT id, row_number() over(order BY id asc) as NO, NAME,
+		createdAt
+		FROM stadium
+	</select>
+
+	<select id="findById"
+		resultType="site.metacoding.red.domain.stadium.Stadium">
+
+	</select>
+
+	<insert id="update">
+
+	</insert>
+
+	<insert id="deleteById">
+
+	</insert>
+
+
+</mapper>
