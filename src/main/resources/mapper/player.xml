@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="site.metacoding.red.domain.player.PlayerDao">
+
+	<insert id="insert">
+
+	</insert>
+
+	<select id="findAll"
+		resultType="site.metacoding.red.domain.player.Player">
+		SELECT p.id, row_number() over(order BY p.id asc) as NO,
+		t.name AS team_name, p.position,
+		p.name, p.created_at
+		FROM player p
+		INNER JOIN team t
+		ON p.team_id = t.id
+	</select>
+
+	<select id="findById"
+		resultType="site.metacoding.red.domain.player.Player">
+
+	</select>
+
+	<insert id="update">
+
+	</insert>
+
+	<insert id="deleteById">
+
+	</insert>
+
+
+</mapper>
