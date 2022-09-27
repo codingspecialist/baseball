@@ -5,14 +5,38 @@
 <div class="container">
 	<form>
 		<div class="mb-3 mt-3">
-			<input type="text" class="form-control" placeholder="Enter value">
+			<input id="name" type="text" class="form-control" placeholder="Enter name">
 		</div>
-		<div class="mb-3 mt-3">
-			<input type="text" class="form-control" placeholder="Enter value">
-		</div>
-		<button type="button" class="btn btn-primary">save완료</button>
+		<button id="btnInsert" type="button" class="btn btn-primary">경기장등록완료</button>
 	</form>
 </div>
+
+<script>
+	$("#btnInsert").click(()=>{
+		insert();
+	});
+	
+	function insert(){
+		let data = {
+				name: $("#name").val()
+		}
+
+		$.ajax("/stadium",{
+			type: "POST",
+			dataType: "json",
+			data: JSON.stringify(data), // http body에 들고갈 요청 데이터
+			headers: { // http header에 들고갈 요청 데이터
+				"Content-Type": "application/json; charset=utf-8"
+			}
+		}).done((res)=>{
+			if(res.code == 1){ // 성공
+				location.href="/stadium";
+			}else{ // 실패
+				alert("경기장등록에 실패하였습니다.");
+			}
+		});
+	}
+</script>
 
 <%@ include file="../layout/footer.jsp"%>
 

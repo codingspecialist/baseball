@@ -5,7 +5,7 @@
 <mapper namespace="site.metacoding.red.domain.stadium.StadiumDao">
 
 	<insert id="insert">
-
+		INSERT INTO stadium(NAME, createdAt) VALUES(#{name}, NOW());
 	</insert>
 
 	<select id="findAll"
