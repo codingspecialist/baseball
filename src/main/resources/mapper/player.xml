@@ -4,14 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="site.metacoding.red.domain.player.PlayerDao">
 
-	<select id="findTeam" resultType="string">
-		SELECT DISTINCT name FROM team
-	</select>
-
 	<select id="findPositionByTeam" resultType="map">
 		SELECT
-		<foreach item="teamName" collection="teamNameList">
-			if(t.name = #{teamName}, p.name, NULL) as #{teamName},
+		<foreach item="team" collection="teamList">
+			if(t.name = #{team.name}, p.name, '') as #{team.name},
 		</foreach>
 		p.position
 		FROM player p

@@ -8,17 +8,22 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>포지션</th>
+				<c:forEach var="col" items="${playerPositionRespDto.colList}">
+					<th>${col}</th>
+				</c:forEach>
 				<!-- for문을 돌려야함 -->
 			</tr>
 		</thead>
 		<tbody>
 			<!-- for문을 돌려야함 -->
-			<tr>
-				<td>1</td>
-				<td>내용1</td>
-				<td>내용2</td>
-			</tr>
+			<c:forEach var="row" items="${playerPositionRespDto.rowList}">
+				<tr>
+					<c:forEach var="value" items="${row}">
+						<td>${value}</td>
+					</c:forEach>	
+				</tr>
+			</c:forEach>
+
 		</tbody>
 	</table>
 </div>

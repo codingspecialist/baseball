@@ -16,6 +16,7 @@ import site.metacoding.red.service.PlayerService;
 import site.metacoding.red.service.TeamService;
 import site.metacoding.red.web.dto.CMRespDto;
 import site.metacoding.red.web.dto.player.PlayerInsertReqDto;
+import site.metacoding.red.web.dto.player.PlayerPositionRespDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -24,8 +25,15 @@ public class PlayerController {
 	private final PlayerService playerService;
 	private final TeamService teamService;
 	
+	@GetMapping("/test/player/position")
+	public @ResponseBody PlayerPositionRespDto positionTest() {
+		return playerService.포지션별팀찾기();
+	}
+	
 	@GetMapping("/player/position")
-	public String position() {
+	public String position(Model model) {		
+		PlayerPositionRespDto playerPositionRespDto =  playerService.포지션별팀찾기();
+		model.addAttribute("playerPositionRespDto", playerPositionRespDto);
 		return "player/positionList";
 	}
 	

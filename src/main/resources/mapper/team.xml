@@ -13,7 +13,7 @@
 		SELECT t.id, s.name stadium_name, row_number() over(order BY t.id asc) as
 		NO, t.NAME, t.created_at
 		FROM team t
-		INNER JOIN stadium s
+		LEFT OUTER JOIN stadium s
 		ON t.stadium_id = s.id
 	</select>
 

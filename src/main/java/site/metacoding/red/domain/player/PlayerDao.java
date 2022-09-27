@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import site.metacoding.red.domain.team.Team;
+
 public interface PlayerDao {
 	public List<Player> findAll();
 	public Player findById(Integer id);
@@ -13,6 +15,5 @@ public interface PlayerDao {
 	public void deleteById(Integer id);
 	
 	// 테스트
-	public List<String> findTeam();
-	public List<Map<String, Object>> findPositionByTeam(@Param("teamNameList") List<String> teamNameList);
+	public List<Map<String, Object>> findPositionByTeam(@Param("teamList") List<Team> teamList);
 }
