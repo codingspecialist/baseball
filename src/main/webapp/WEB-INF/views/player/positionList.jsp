@@ -8,12 +8,12 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>번호</th>
-				<th>칼럼1</th>
-				<th>칼럼2</th>
+				<th>포지션</th>
+				<!-- for문을 돌려야함 -->
 			</tr>
 		</thead>
 		<tbody>
+			<!-- for문을 돌려야함 -->
 			<tr>
 				<td>1</td>
 				<td>내용1</td>

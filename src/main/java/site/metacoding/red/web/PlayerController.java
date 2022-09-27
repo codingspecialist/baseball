@@ -24,6 +24,11 @@ public class PlayerController {
 	private final PlayerService playerService;
 	private final TeamService teamService;
 	
+	@GetMapping("/player/position")
+	public String position() {
+		return "player/positionList";
+	}
+	
 	@GetMapping("/player")
 	public String list(Model model) {
 		List<Player> playerList = playerService.목록보기();

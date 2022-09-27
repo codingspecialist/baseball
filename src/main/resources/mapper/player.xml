@@ -4,8 +4,25 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="site.metacoding.red.domain.player.PlayerDao">
 
+	<select id="findTeam" resultType="string">
+		SELECT DISTINCT name FROM team
+	</select>
+
+	<select id="findPositionByTeam" resultType="map">
+		SELECT
+		<foreach item="teamName" collection="teamNameList">
+			if(t.name = #{teamName}, p.name, NULL) as #{teamName},
+		</foreach>
+		p.position
+		FROM player p
+		INNER JOIN team t
+		ON p.team_id = t.id
+	</select>
+
+
 	<insert id="insert">
-		INSERT INTO player(name, position, team_id, is_outer, created_at) 
+		INSERT INTO player(name, position, team_id, is_outer,
+		created_at)
 		VALUES(#{name}, #{position}, #{teamId}, 0,NOW());
 	</insert>
 
