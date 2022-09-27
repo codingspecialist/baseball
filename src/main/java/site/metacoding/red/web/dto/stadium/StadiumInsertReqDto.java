@@ -6,7 +6,7 @@ import site.metacoding.red.domain.stadium.Stadium;
 
 @Setter
 @Getter
-public class StadiumInertReqDto {
+public class StadiumInsertReqDto {
 	private String name;
 	
 	public Stadium toEntity() {

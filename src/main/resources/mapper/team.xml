@@ -5,7 +5,7 @@
 <mapper namespace="site.metacoding.red.domain.team.TeamDao">
 
 	<insert id="insert">
-
+		INSERT INTO team(NAME, stadium_id, created_at) VALUES(#{name}, #{stadiumId}, NOW())
 	</insert>
 
 	<select id="findAll"
