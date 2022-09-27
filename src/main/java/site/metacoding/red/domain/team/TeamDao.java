@@ -5,7 +5,7 @@ import java.util.List;
 public interface TeamDao {
 	public List<Team> findAll();
 	public Team findById(Integer id);
-	public void insert(Team stadium);
-	public void update(Integer id, Team stadium);
+	public void insert(Team team);
+	public void update(Integer id, Team team);
 	public void deleteById(Integer id);
 }
